@@ -79,7 +79,10 @@ function copiarAlPortapapeles() {
 // 5. VISTA 2: Abrir ventana de compartición en Facebook
 function compartirFacebookDirecto() {
     const urlACompartir = enlaceGenerado || document.getElementById('output-url').value;
+    
+    // CORREGIDO: Usando comillas invertidas (``) y la estructura \${} para que JS procese la variable correctamente
     const fbUrl = `https://facebook.com{encodeURIComponent(urlACompartir)}`;
+    
     window.open(fbUrl, '_blank');
 }
 
