@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verdad o Reto Club</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+        
+      <!-- VISTA 1: CREAR EL RETO -->
+      <div id="view-create" class="view">
+          <h1>🎮 Verdad o Reto Club</h1>
+          <p>Envía un desafío único al grupo de Facebook. ¡A ver quién tiene el valor de responder!</p>
+            
+          <label for="input-creator">Tu Nickname:</label>
+          <input type="text" id="input-creator" placeholder="Ej. El Rompe Reglas, Admin, Anónimo...">
+
+          <label for="select-mode">Modo de juego:</label>
+          <select id="select-mode">
+              <option value="🟢 Modo Suave / Familiar">🟢 Modo Suave / Familiar</option>
+              <option value="🔥 Modo Fiesta / Amigos">🔥 Modo Fiesta / Amigos</option>
+              <option value="💪 Modo Fit / Retos Físicos">💪 Modo Fit / Retos Físicos</option>
+              <option value="🌶️ Modo Picante / Parejas">🌶️ Modo Picante / Parejas</option>
+              <option value="🎵 Modo Melómano / Música">🎵 Modo Melómano / Música</option>
+              <option value="💀 Modo Extremo / Incómodo">💀 Modo Extremo / Incómodo</option>
+          </select>
+
+          <label for="select-type">¿Qué le vas a imponer?</label>
+          <select id="select-type">
+              <option value="verdad">😇 Una Verdad (Pregunta)</option>
+              <option value="reto">😈 Un Reto (Acción)</option>
+          </select>
+
+          <label for="input-text">Tu Reto o Pregunta:</label>
+          <textarea id="input-text" placeholder="Escribe aquí tu jugada... ¡Sé creativo!"></textarea>
+
+          <button class="btn-main" onclick="generarEnlace()">🔗 Crear Enlace Dinámico</button>
+      </div>
+
+      <!-- VISTA 2: COMPARTIR ENLACE -->
+      <div id="view-share" class="view">
+          <h1>🔗 ¡Enlace Listísimo!</h1>
+          <p>Copia el link de abajo y pégalo directo en los comentarios del grupo.</p>
+            
+          <input type="text" id="output-url" readonly onclick="this.select()">
+            
+          <div class="btn-group">
+              <button class="btn-main" id="btn-copy" onclick="copiarAlPortapapeles()">📋 Copiar Enlace</button>
+              <button class="btn-fb" onclick="compartirFacebookDirecto()">👥 Publicar en Facebook</button>
+              <button class="btn-secondary" onclick="resetApp()">🔄 Crear otro diferente</button>
+          </div>
+      </div>
+
+      <!-- VISTA 3: MOSTRAR EL RETO RECIBIDO -->
+      <div id="view-receive" class="view">
+          <h1>📩 ¡Te desafiaron!</h1>
+          <p>Un miembro del grupo quiere ponerte a prueba:</p>
+            
+          <div class="challenge-card">
+              <span id="card-mode" class="mode-tag">MODO</span>
+              <span id="card-badge" class="badge">TIPO</span>
+              <p class="challenge-text" id="card-text">"Cargando desafío..."</p>
+              <p style="margin-bottom:0; font-size:0.9rem;">Impuesto por: <span class="creator-tag" id="card-creator"></span></p>
+          </div>
+            
+          <p>Sube tu respuesta o captura en los comentarios del post de Facebook de donde viniste. ¿Vas a arrugar? 😎</p>
+            
+          <div class="btn-group">
+              <button class="btn-main" onclick="resetApp()">🔥 Vengarte creando un reto nuevo</button>
+          </div>
+      </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
